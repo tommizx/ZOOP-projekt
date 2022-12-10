@@ -5,7 +5,6 @@ public class GeneralKnowledge extends Category{
         super();
         this.setCategoryName("General Knowledge");
         this.setCategoryNumber(1);
-        this.setActiveHighestScore(0);
         questionArray[0] = "Ktory prvok je znamy tym, ze pomaha udrziavat silu a odolnost ludskych kosti?";
         questionArray[1] = "Kolko zivotov maju udajne macky?";
         questionArray[2] = "Aka je mena v polsku?";

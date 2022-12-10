@@ -2,12 +2,21 @@ package Model;
 
 public class ActiveUser extends User{
     private int activeUserPoints;
-    private int activeUserHighestScore;
-    public ActiveUser(){
+    public int[] activeUserHighestScoreArray = new int[3];
+    private int activeUserGeneralKnowledgeRecord;
+    private int activeUserMathRecord;
+    private int activeUserGeographyRecord;
+    public ActiveUser(String userName){
         super();
-        this.setActiveUserHighestScore(0);
+        this.setUserName(userName);
+        this.activeUserHighestScoreArray[0] = 0;
+        this.activeUserHighestScoreArray[1] = 0;
+        this.activeUserHighestScoreArray[2] = 0;
+        this.setActiveUserPoints(0);
+        this.setActiveUserGeneralKnowledgeRecord(0);
+        this.setActiveUserMathRecord(0);
+        this.setActiveUserGeographyRecord(0);
     }
-
     public int getActiveUserPoints() {
         return activeUserPoints;
     }
@@ -15,12 +24,27 @@ public class ActiveUser extends User{
     public void setActiveUserPoints(int activeUserPoints) {
         this.activeUserPoints = activeUserPoints;
     }
-
-    public int getActiveUserHighestScore() {
-        return activeUserHighestScore;
+    public int getActiveUserGeneralKnowledgeRecord() {
+        return activeUserGeneralKnowledgeRecord;
     }
 
-    public void setActiveUserHighestScore(int activeUserHighestScore) {
-        this.activeUserHighestScore = activeUserHighestScore;
+    public void setActiveUserGeneralKnowledgeRecord(int activeUserGeneralKnowledgeRecord) {
+        this.activeUserGeneralKnowledgeRecord = activeUserGeneralKnowledgeRecord;
+    }
+
+    public int getActiveUserMathRecord() {
+        return activeUserMathRecord;
+    }
+
+    public void setActiveUserMathRecord(int activeUserMathRecord) {
+        this.activeUserMathRecord = activeUserMathRecord;
+    }
+
+    public int getActiveUserGeographyRecord() {
+        return activeUserGeographyRecord;
+    }
+
+    public void setActiveUserGeographyRecord(int activeUserGeographyRecord) {
+        this.activeUserGeographyRecord = activeUserGeographyRecord;
     }
 }

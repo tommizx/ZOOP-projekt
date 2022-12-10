@@ -5,7 +5,6 @@ public class Math extends Category{
         super();
         this.setCategoryName("Math");
         this.setCategoryNumber(2);
-        this.setActiveHighestScore(0);
         questionArray[0] = "Napis cislo PI s jeho prvymi styrmi desatinnymi cislami (s bodkou)";
         questionArray[1] = "Kolko je 6^0?";
         questionArray[2] = "Ak objekt vyhodime do vzduchu a spadne naspat na zem, tvar jeho trajektorie je?";

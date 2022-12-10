@@ -9,11 +9,8 @@ import java.util.Scanner;
 public class Game {
     public Game() {
         this.categoryArray[0] = new GeneralKnowledge();
-        this.categoryArray[1] = new Math();
-        this.categoryArray[2] = new Geography();;
         this.categoryNumber = 0;
         this.questionsUtils = new QuestionUtils();
-        this.activeUser = new ActiveUser();
         this.sc = new Scanner(System.in);
         this.gameStageString = "start";
     }
@@ -33,12 +30,8 @@ public class Game {
         System.out.println("Zadaj svoje meno : ");
         basicInput = sc.nextLine();
         GeneralUtils.exitCheck(basicInput);
-        String activeUserName = basicInput;
-        activeUser.setUserName(activeUserName);
+        activeUser = new ActiveUser(basicInput);
         System.out.println("Ahoj, " + activeUser.getUserName() + "! :)");
-        for (int i = 0; i < 3; i++) {
-            PointsUtils.setHighestScore(activeUser, categoryArray[i]);
-        }
     }
     public void categorySelectionStage(){
         do{
@@ -78,10 +71,9 @@ public class Game {
             userAnswer = sc.nextLine();
             GeneralUtils.exitCheck(userAnswer);
             activeUser.setActiveUserPoints(activeUser.getActiveUserPoints() + questionsUtils.isAnswerCorrect(categoryNumber, randomNumber, userAnswer));
-
         }
-        if (selectedCategory.getActiveHighestScore() < activeUser.getActiveUserPoints()) {
-            System.out.println("Dosiahol si nove najvyssie skore v tejto kategorii! Predosle najvyssie skore : " + selectedCategory.getActiveHighestScore());
+        if (activeUser.activeUserHighestScoreArray[selectedCategory.getCategoryNumber()-1] < activeUser.getActiveUserPoints()) {
+            System.out.println("Dosiahol/la si nove najvyssie skore v tejto kategorii! Predosle najvyssie skore : " + activeUser.activeUserHighestScoreArray[selectedCategory.getCategoryNumber()-1]);
             PointsUtils.setHighestScore(activeUser, selectedCategory);
         }
         System.out.println("Ziskal si " + activeUser.getActiveUserPoints() + " z 3 bodov!");

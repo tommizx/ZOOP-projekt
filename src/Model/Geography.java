@@ -5,7 +5,6 @@ public class Geography extends Category{
         super();
         this.setCategoryName("Geography");
         this.setCategoryNumber(3);
-        this.setActiveHighestScore(0);
         questionArray[0] = "Ako sa vola najdlhsia rieka v Afrike?";
         questionArray[1] = "Ake je hlavne mesto Kanady?";
         questionArray[2] = "Aka planeta je najblizsia k Zemi?";

@@ -7,6 +7,7 @@ public class PointsUtils {
         activeUser.setActiveUserPoints(0);
     }
     public static void setHighestScore(ActiveUser activeUser, Category currentCategory){
-        currentCategory.setActiveHighestScore(activeUser.getActiveUserPoints());
+        activeUser.activeUserHighestScoreArray[currentCategory.getCategoryNumber()-1] = activeUser.getActiveUserPoints();
+//        currentCategory.setActiveHighestScore(activeUser.getActiveUserPoints());
     }
 }
