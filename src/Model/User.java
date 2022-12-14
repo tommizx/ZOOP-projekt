@@ -1,11 +1,8 @@
 package Model;
 
-public class User {
-    private String userName;
-    public String getUserName() {
-        return userName;
-    }
-    public void setUserName(String userName) {
-        this.userName = userName;
+public interface User {
+    default void resetPoints(ActiveUser activeUser){
+        activeUser.setActiveUserPoints(0);
+        System.out.println("Body boli resetovane! :)");
     }
 }

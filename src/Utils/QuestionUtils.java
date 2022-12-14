@@ -1,8 +1,6 @@
 package Utils;
 
-import Model.GeneralKnowledge;
-import Model.Math;
-import Model.Geography;
+import Model.*;
 
 import java.util.Random;
 
@@ -12,39 +10,20 @@ public class QuestionUtils {
     }
     Random random = new Random();
     int randomNumber = 0;
-    public int getRandomQuestionIndex(int upperBound){
-        randomNumber = random.nextInt(upperBound);
+    public int getRandomQuestionIndex(int upperBound, int[] alreadyUsedQuestionsArray){
+        boolean isNumberAlreadyUsed = false;
+        int i;
+        do{
+            randomNumber = random.nextInt(upperBound);
+            for(i=0; i<3; i++){
+                isNumberAlreadyUsed = false;
+                if(randomNumber == alreadyUsedQuestionsArray[i]){
+                    isNumberAlreadyUsed = true;
+                    break;
+                }
+            }
+        }while(isNumberAlreadyUsed);
         return randomNumber;
     }
-    public int isAnswerCorrect(int categoryNumber, int randomNumber, String userAnswer){
-        int result = 0;
-        if(categoryNumber == 1){
-            GeneralKnowledge generalKnowledgeCategory = new GeneralKnowledge();
-            if(userAnswer.equals(generalKnowledgeCategory.answerArray[randomNumber])){
-                result = 1;
-            }
-            else{
-                result = 0;
-            }
-        }
-        else if(categoryNumber == 2){
-            Math mathCategory = new Math();
-            if(userAnswer.equals(mathCategory.answerArray[randomNumber])){
-                result = 1;
-            }
-            else{
-                result = 0;
-            }
-        }
-        else if(categoryNumber == 3){
-            Geography geographyCategory = new Geography();
-            if(userAnswer.equals(geographyCategory.answerArray[randomNumber])){
-                result = 1;
-            }
-            else{
-                result = 0;
-            }
-        }
-        return result;
-    }
+
 }

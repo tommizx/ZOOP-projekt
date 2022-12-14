@@ -4,13 +4,21 @@ public class Main {
     public static void main(String[] args) {
         Game game = new Game();
         do {
+            if (game.gameStageString.equals("admin")){
+                game.adminStage();
+            }
             if (game.gameStageString.equals("start") || game.gameStageString.equals("logout")) {
                 game.userLoginStage();
             }
-            if (game.gameStageString.equals("start") || game.gameStageString.equals("logout") || game.gameStageString.equals("selection")) {
+            if (game.gameStageString.equals("selection")) {
                 game.categorySelectionStage();
             }
-            game.gameStage();
+            if (game.gameStageString.equals("leaderboard")){
+                game.leaderboardStage();
+            }
+            if (game.gameStageString.equals("play")){
+                game.gameStage();
+            }
         } while (!(game.gameStageString.equals("exit")));
     }
 }

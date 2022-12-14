@@ -21,4 +21,15 @@ public class GeneralKnowledge extends Category{
     public String toString(){
         return "Nazov kategorie je "+this.getCategoryName()+" a jej cislo je "+this.getCategoryNumber();
     }
+    public int isAnswerCorrect(int questionNumber, String userAnswer){
+        int result = 0;
+        if(userAnswer.equals(this.answerArray[questionNumber])){
+            result = 1;
+        }
+        return result;
+    }
+    @Override
+    public void bCClass(){
+        System.out.println("GK class");
+    }
 }
